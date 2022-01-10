@@ -1,7 +1,8 @@
-const hbs = require('hbs');
+// const hbs = require('hbs');
 const express = require('express');
-const exphbs = require('express-handlebars');
+ const exphbs = require('express-handlebars');
 
+const hbs = exphbs.create({});
 const bodyParser = require('body-parser');
 const mysql = require('mysql');
 
@@ -22,11 +23,11 @@ app.use(express.static('public'));
 
 
 // Template Engine
-app.engine('hbs',exphbs({ extname: 'hbs' }));
+app.engine('hbs', hbs.engine);
 app.set('view engine','hbs');
 
 // Router 
-app.get('',(res,req)=> {
+app.get('/',(req,res)=> {
     res.render('home');
 });
 
