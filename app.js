@@ -1,7 +1,6 @@
 // const hbs = require('hbs');
 const express = require('express');
  const exphbs = require('express-handlebars');
-
 const hbs = exphbs.create({});
 const bodyParser = require('body-parser');
 const mysql = require('mysql');
@@ -28,7 +27,7 @@ app.set('view engine','hbs');
 
 // Router 
 app.get('/',(req,res)=> {
-    res.render('home');
+    res.render('home.hbs');
 });
 
 app.listen(port,() => console.log(`Listening on port ${port}`));
